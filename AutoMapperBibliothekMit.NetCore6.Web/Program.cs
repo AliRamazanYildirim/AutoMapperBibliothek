@@ -1,7 +1,17 @@
+using AutoMapperBibliothekMit.NetCore6.Web.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAutoMapper(typeof(Program));
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<AppDbKontext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlVerbindung"));
+});
 
 var app = builder.Build();
 
