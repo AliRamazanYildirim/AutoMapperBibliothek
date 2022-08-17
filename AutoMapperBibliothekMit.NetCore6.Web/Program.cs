@@ -35,3 +35,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+//AutoMapper ist eine Bibliothek, die verwendet wird, um ein Objekt einem anderen Objekt zuzuordnen und
+//die Daten für die Außenwelt zu öffnen.
