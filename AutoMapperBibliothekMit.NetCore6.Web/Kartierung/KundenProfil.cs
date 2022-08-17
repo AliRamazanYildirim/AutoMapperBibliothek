@@ -16,10 +16,12 @@ namespace AutoMapperBibliothekMit.NetCore6.Web.Kartierung
 
             //Wie unten geschrieben können wir  definieren.Aber es wird nicht empfohlen,
             //eine Einzelzuordnung durchzuführen, da dies die Leistung von AutoMapper verringert.
+
             //CreateMap<Kunde, KundeDüo>().
-            //    ForMember(ziel => ziel.VorName, quelle => quelle.MapFrom(kunde => kunde.Name));
-            //ForMember(ziel=>ziel.KreditKarteNummer,quelle=>quelle.MapFrom(kunde=>kunde.KreditKarte)).
-            //ForMember(ziel => ziel.KreditKarteGültigesDatum, quelle => quelle.MapFrom(kunde => kunde.KreditKarte));
+            //ForMember(ziel => ziel.VorName, quelle => quelle.MapFrom(kunde => kunde.Name)).
+            //ForMember(ziel => ziel.KreditKarteNummer, quelle => quelle.MapFrom(kunde => kunde.KreditKarte.Nummer)).
+            //ForMember(ziel => ziel.KreditKarteGültigesDatum, quelle => quelle.MapFrom(kunde => kunde.KreditKarte.GültigesDatum));
+
             //Wenn wir diese Methodu ausblenden,dann erhalten wir VollständigerName leer(null).
             //ForMember(ziel=>ziel.VollständigerName,quelle=>quelle.MapFrom(kunde=>kunde.GeheZumVollständigerName()));
 
