@@ -9,8 +9,14 @@
         public string VollständigerName { get; set; }
         //Nach AutoMapper Namenskonvention schreibt man wie unten geschriben, um nicht komplexe Code zu schreiben
         //Diese Transaktion nent man Flattening(Abflachung)
-        public string KreditKarteNummer { get; set; }
-        public DateTime KreditKarteGültigesDatum { get; set; }
+        //public string KreditKarteNummer { get; set; }
+        //public DateTime KreditKarteGültigesDatum { get; set; }
+
+        //Wenn wir Properties von KreditKarte Klasse genau hier so schreiben,
+        //müssen wir nicht für  die Konvertierung extra Code schreiben.
+
+        public string Nummer { get; set; }
+        public DateTime GültigesDatum { get; set; }
 
     }
 }

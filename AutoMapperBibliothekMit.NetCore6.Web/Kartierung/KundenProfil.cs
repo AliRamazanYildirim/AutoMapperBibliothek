@@ -8,7 +8,7 @@ namespace AutoMapperBibliothekMit.NetCore6.Web.Kartierung
     {
         public KundenProfil()
         {
-            CreateMap<Kunde, KundeDüo>().ReverseMap();
+            CreateMap<Kunde, KundeDüo>().IncludeMembers(kunde=>kunde.KreditKarte);
             //Anstatt wie unten geschrieben zu schreiben, können wir auf diese Weise schreiben.
             //CreateMap<KundeDüo, Kunde>();
 
@@ -18,12 +18,12 @@ namespace AutoMapperBibliothekMit.NetCore6.Web.Kartierung
             //eine Einzelzuordnung durchzuführen, da dies die Leistung von AutoMapper verringert.
             //CreateMap<Kunde, KundeDüo>().
             //    ForMember(ziel => ziel.VorName, quelle => quelle.MapFrom(kunde => kunde.Name));
-                //ForMember(ziel=>ziel.KreditKarteNummer,quelle=>quelle.MapFrom(kunde=>kunde.KreditKarte)).
-                //ForMember(ziel => ziel.KreditKarteGültigesDatum, quelle => quelle.MapFrom(kunde => kunde.KreditKarte));
-                //Wenn wir diese Methodu ausblenden,dann erhalten wir VollständigerName leer(null).
-                //ForMember(ziel=>ziel.VollständigerName,quelle=>quelle.MapFrom(kunde=>kunde.GeheZumVollständigerName()));
+            //ForMember(ziel=>ziel.KreditKarteNummer,quelle=>quelle.MapFrom(kunde=>kunde.KreditKarte)).
+            //ForMember(ziel => ziel.KreditKarteGültigesDatum, quelle => quelle.MapFrom(kunde => kunde.KreditKarte));
+            //Wenn wir diese Methodu ausblenden,dann erhalten wir VollständigerName leer(null).
+            //ForMember(ziel=>ziel.VollständigerName,quelle=>quelle.MapFrom(kunde=>kunde.GeheZumVollständigerName()));
 
-            
+            CreateMap<KreditKarte, KundeDüo>();
         }
     }
 }
