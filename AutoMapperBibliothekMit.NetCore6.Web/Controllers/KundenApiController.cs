@@ -29,13 +29,20 @@ namespace AutoMapperBibliothekMit.NetCore6.Web.Controllers
         //in der Kunde Klasse eine individuelle Methodu erstellen 
         //Aber es wird nicht empfohlen, weil ApiController Route deaktiviert wird.
 
-        //[Route("GeheZumVollständigerName")]
-        //[HttpGet]
-        //public IActionResult GeheZumVollständigerName()
-        //{
-        //    Kunde kunde = new Kunde { Id = 1, Name = "Elif", Email = "eliflamrayildirim@gmail.com", Alter = 18 };
-        //    return Ok(_mapper.Map<KundeDüo>(kunde));
-        //}
+        [Route("GeheZumVollständigerName")]
+        [HttpGet]
+        public IActionResult GeheZumVollständigerName()
+        {
+            Kunde kunde = new Kunde
+            {
+                Id = 1,
+                Name = "Elif",
+                Email = "eliflamrayildirim@gmail.com",
+                Alter = 18,
+                KreditKarte = new KreditKarte { Nummer = "1453", GültigesDatum = DateTime.Now }
+            };
+            return Ok(_mapper.Map<KundeDüo>(kunde));
+        }
 
         // GET: api/KundenApi
         [HttpGet]
@@ -121,5 +128,6 @@ namespace AutoMapperBibliothekMit.NetCore6.Web.Controllers
         {
             return _context.Kunden.Any(e => e.Id == id);
         }
+
     }
 }
