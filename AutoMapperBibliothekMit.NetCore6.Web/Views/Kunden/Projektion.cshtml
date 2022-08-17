@@ -1,0 +1,29 @@
+﻿@model AutoMapperBibliothekMit.NetCore6.Web.Düoe.EreignisDatumDüo
+@{
+    ViewData["Title"] = "Projektion";
+}
+
+<h4>Kunde</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Tag" class="form-control" /> 
+            </div>
+            <div class="form-group">
+                <input asp-for="Monat" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-for="Jahr" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Speichern" class="btn btn-success" />
+            </div>
+        </form>
+        <h1>@ViewBag.datum</h1>
+    </div>
+</div>
+
+

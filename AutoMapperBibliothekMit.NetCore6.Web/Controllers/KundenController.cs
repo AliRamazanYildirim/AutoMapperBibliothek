@@ -6,17 +6,34 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AutoMapperBibliothekMit.NetCore6.Web.Models;
+using AutoMapper;
+using AutoMapperBibliothekMit.NetCore6.Web.Düoe;
 
 namespace AutoMapperBibliothekMit.NetCore6.Web.Controllers
 {
     public class KundenController : Controller
     {
         private readonly AppDbKontext _context;
+        private readonly IMapper _mapper;
 
-        public KundenController(AppDbKontext context)
+        public KundenController(AppDbKontext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
+
+        public IActionResult Projektion()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Projektion(EreignisDatumDüo ereignisDatumDüo)
+        {
+            EreignisDatum ereignisDatum=_mapper.Map<EreignisDatum>(ereignisDatumDüo);
+            ViewBag.datum = ereignisDatum.Datum.ToShortDateString();
+            return View();
+        }
+
 
         // GET: Kunden
         public async Task<IActionResult> Index()
