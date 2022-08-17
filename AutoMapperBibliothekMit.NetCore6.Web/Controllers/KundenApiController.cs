@@ -24,7 +24,18 @@ namespace AutoMapperBibliothekMit.NetCore6.Web.Controllers
             _context = context;
         }
 
+        //Wenn wir eine benutzerdefinierte Methode schreiben möchten, können wir unsere benutzerdefinierte Methode
+        //in KundenApiController erstellen und die entsprechende Anfrage stellen oder
+        //in der Kunde Klasse eine individuelle Methodu erstellen 
+        //Aber es wird nicht empfohlen, weil ApiController Route deaktiviert wird.
 
+        //[Route("GeheZumVollständigerName")]
+        //[HttpGet]
+        //public IActionResult GeheZumVollständigerName()
+        //{
+        //    Kunde kunde = new Kunde { Id = 1, Name = "Elif", Email = "eliflamrayildirim@gmail.com", Alter = 18 };
+        //    return Ok(_mapper.Map<KundeDüo>(kunde));
+        //}
 
         // GET: api/KundenApi
         [HttpGet]
